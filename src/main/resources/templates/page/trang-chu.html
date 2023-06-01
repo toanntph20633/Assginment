@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymleaf-extras-springsecurity5">
+
+<head>
+    <meta charset="UTF-8">
+    <title>My Bootstrap Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/trang-chu.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+            crossorigin="anonymous"></script>
+</head>
+
+<body>
+<div th:include="layout/header"></div>
+<div th:include="layout/back-ground"></div>
+<div class="mt-4" style="height: 1000px;">
+    <h1 class="text-center">KHÁM PHÁ CÁC SẢN PHẨM CỦA CHÚNG TÔI</h1>
+    <div class="container text-center">
+        <div class="row">
+            <div class="col">
+                <a th:href="@{/view-laptop/list}" class="text-black text-decoration-none texthover">
+                    <div class="">
+                        <img src="https://dlcdnwebimgs.asus.com/gain/868C3307-DD02-4624-8BA7-31B62EE4A38F/w240/h175"
+                             class="card-img-top p-3" alt="...">
+                        <div class="">
+                            <h5 class="">Máy tính xách tay</h5>
+
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#" class="text-black text-decoration-none texthover">
+                    <div class="">
+                        <img src="https://dlcdnwebimgs.asus.com/gain/B9B3F542-45F3-4C59-9BC1-25B8A1B7CCB1/w240/h175"
+                             class="card-img-top p-3" alt="...">
+                        <div class="">
+                            <h5 class="">Bo mạch chủ</h5>
+
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#" class="text-black text-decoration-none texthover">
+                    <div class="">
+                        <img src="https://dlcdnwebimgs.asus.com/gain/01480520-08BA-439E-A626-2E3D6F0D9908/w240/h175"
+                             class="card-img-top p-3" alt="...">
+                        <div class="">
+                            <h5 class="">Card đồ họa</h5>
+
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#" class="text-black text-decoration-none texthover">
+                    <div class="">
+                        <img src="https://dlcdnwebimgs.asus.com/gain/718462E2-0FF1-424B-8070-9EE75A96DC64/w240/h175"
+                             class="card-img-top p-3" alt="...">
+                        <div class="">
+                            <h5 class="">Màn hình</h5>
+
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#" class="text-black text-decoration-none texthover">
+                    <div class="">
+                        <img src="https://dlcdnwebimgs.asus.com/gain/976CF93D-8371-4C36-B44C-88920ED5FA9D/w240/h175"
+                             class="card-img-top p-3" alt="...">
+                        <div class="">
+                            <h5 class="">Dock VGA cắm ngoài</h5>
+
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<div th:include="layout/footer"></div>
+
+</div>
+</body>
+
+</html>

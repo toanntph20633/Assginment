@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymleaf-extras-springsecurity5">
+
+<head>
+      <meta charset="UTF-8">
+      <title>My Bootstrap Page</title>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+      <link rel="stylesheet" href="/css/trang-chu.css">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+            crossorigin="anonymous"></script>
+</head>
+
+<body>
+      <div th:include="layout/header"></div>
+      <div th:include="layout/back-ground"></div>
+      <div>
+            <div class="container mt-3">
+                  <div class="h5">Bộ lọc</div>
+                  <div class="">
+                        <form class="">
+                              <div class="d-flex mb-2">
+                                    <div class="">
+                                          <label for="name" class="form-label">Tên sản phẩm</label>
+                                          <input type="text" class="form-control" id="name" name="name">
+                                    </div>
+                                    <div class="mx-2">
+                                          <label for="idBrand" class="form-label">Loại</label>
+                                          <select class="form-select" aria-label="Default select example" id="idBrand"
+                                                name="idBrand">
+                                                <div th:each="brandRes : ${listBrand}">
+                                                      <option th:value="${brandRes.id}" th:text="${brandRes.brandName}">
+                                                      </option>
+                                                </div>
+                                          </select>
+                                    </div>
+                                    <div class="">
+                                          <label for="name" class="form-label">Khoảng giá</label>
+                                          <div class="d-flex">
+                                                <input type="number" step="1000000" min="0" max="999999999"
+                                                      class="form-control" id="priceMin" name="priceMin">
+                                                <span class="mx-2 mt-1">Đến</span>
+                                                <input type="number" step="1000000" min="0" max="999999999"
+                                                      class="form-control" id="priceMax" name="priceMax">
+                                          </div>
+                                    </div>
+                                    <div class="mx-3">
+                                          <label for="name" class="form-label">Sắp xếp theo</label>
+                                          <div class="d-flex mt-1">
+                                                <div class="form-check ">
+                                                      <input class="form-check-input" type="radio"
+                                                            name="flexRadioDefault" id="flexRadioDefault1">
+                                                      <label class="form-check-label" for="flexRadioDefault1">
+                                                          Từ A-Z
+                                                      </label>
+                                                </div>
+                                                <div class="form-check mx-1">
+                                                      <input class="form-check-input" type="radio"
+                                                            name="flexRadioDefault" id="flexRadioDefault2" >
+                                                      <label class="form-check-label" for="flexRadioDefault2">
+                                                            Từ Z-A
+                                                      </label>
+                                                </div>
+                                                <div class="form-check">
+                                                      <input class="form-check-input" type="radio"
+                                                            name="flexRadioDefault" id="flexRadioDefault3" >
+                                                      <label class="form-check-label" for="flexRadioDefault3">
+                                                            Giá tăng dần
+                                                      </label>
+                                                </div>
+                                                <div class="form-check mx-1">
+                                                      <input class="form-check-input" type="radio"
+                                                            name="flexRadioDefault" id="flexRadioDefault4" >
+                                                      <label class="form-check-label" for="flexRadioDefault4">
+                                                           Giá giảm dần
+                                                      </label>
+                                                </div>
+                                          </div>
+
+                                    </div>
+                              </div>
+                              <button type="submit" class="btn btn-primary">Tìm kiếm</button>
+                        </form>
+                  </div>
+            </div>
+      </div>
+      <div th:include="layout/footer"></div>
+      </div>
+
+</body>
+
+</html>
