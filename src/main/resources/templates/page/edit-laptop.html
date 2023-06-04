@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymleaf-extras-springsecurity5">
+
+<head>
+    <meta charset="UTF-8">
+    <title>My Bootstrap Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/trang-chu.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+            crossorigin="anonymous"></script>
+</head>
+
+<body>
+<div th:include="layout/header"></div>
+<div class="row">
+    <div class="col">
+        <form class="mx-2" th:action="@{/admin/laptop-manager/save-laptop}" method="post" th:object="${laptop}" accept="image/png, image/jpeg"
+              enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="laptopCode" class="form-label">Mã sản phẩm</label>
+                <input type="text" class="form-control" id="laptopCode" th:field="*{laptopCode}">
+            </div>
+            <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('laptopCode')}"
+                 th:errors="*{laptopCode}">
+                A simple warning alert—check it out!
+            </div>
+            <div class="mb-3">
+                <label for="laptopName" class="form-label">Tên sản phẩm</label>
+                <input type="text" class="form-control" id="laptopName" th:field="*{laptopName}">
+            </div>
+            <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('laptopName')}"
+                 th:errors="*{laptopName}">
+                A simple warning alert—check it out!
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Mô tả</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description"
+                          th:field="*{description}"></textarea>
+            </div>
+            <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('description')}"
+                 th:errors="*{description}">
+                A simple warning alert—check it out!
+            </div>
+            <div class="mb-3">
+                <label for="price" class="form-label">Giá bán</label>
+                <input type="text" class="form-control" id="price" th:field="*{price}">
+            </div>
+            <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('price')}" th:errors="*{price}">
+                A simple warning alert—check it out!
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Hãng</label>
+                <select class="form-select" aria-label="Default select example" id="brandId" name="brandId"
+                        th:field="*{brandId}">
+                    <option th:each="brandRes : ${listBrand}" th:value="${brandRes.id}"
+                            th:text="${brandRes.brandName}"></option>
+                </select>
+            </div>
+            <div class="alert alert-danger" role="alert" th:if="${#fields.hasErrors('brandId')}"
+                 th:errors="*{brandId}">
+                A simple warning alert—check it out!
+            </div>
+            <div class="mb-3">
+                <label for="laptopCode" class="form-label">Chọn File ảnh: </label>
+                <input type="file" name="file" class="form-control"/></div>
+            <button type="submit" class="btn btn-primary"
+                    th:text="${param.id !=null?'Cập nhật':'Thêm mới'}"></button>
+        </form>
+
+    </div>
+    <div class="col"><img src="/user-photos/1685789477277/343497134_775598460605500_2930062764792466169_n.jpg" alt="p"></div>
+
+</div>
+<div th:include="layout/footer"></div>
+</div>
+
+</body>
+
+</html>

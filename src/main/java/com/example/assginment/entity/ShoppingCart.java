@@ -1,4 +1,5 @@
 package com.example.assginment.entity;
+
 import com.example.assginment.util.ShoppingCartStatus;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -16,36 +17,19 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Map;
 
-@Entity
-@Table(name = "shopping_cart")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 public class ShoppingCart {
-    @Id
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "org.hibernate.id.UUIDGenerator")
-    @Column(name = "id")
-    private String id;
-    @Column(name = "create_date")
-    private LocalDate createDate;
 
-    @Column(name = "status")
-    @Enumerated(EnumType.ORDINAL)
-    private ShoppingCartStatus status;
 
-    @ManyToOne
-    @JoinColumn(name = "customer_id")
-    private Customer customerId;
+    private Map<>;
+    private BigDecimal total;
 
-    @ManyToOne
-    @JoinColumn(name = "laptop_id")
-    private Laptop laptopId;
-
-    @Column(name = "quantity")
-    private int quantity;
 }

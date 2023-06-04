@@ -5,7 +5,7 @@ import com.example.assginment.model.viewlaptop.req.LaptopReq;
 import com.example.assginment.model.viewlaptop.res.BrandRes;
 import com.example.assginment.repository.BrandRepository;
 import com.example.assginment.repository.LaptopRepository;
-import com.example.assginment.service.viewbanhang.LaptopService;
+import com.example.assginment.service.viewbanhang.LaptopServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class LaptopServiceImpl implements LaptopService {
+public class LaptopServiceImpl implements LaptopServices {
     @Autowired
     private LaptopRepository laptopRepository;
     @Autowired

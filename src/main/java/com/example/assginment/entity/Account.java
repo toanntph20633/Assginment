@@ -8,6 +8,7 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -25,8 +26,10 @@ public class Account {
     @Column(name = "id", nullable = false)
     private String id;
     @Column(name = "username")
+    @NotBlank(message = "khong duoc de trong")
     private String userName;
     @Column(name = "password")
+    @NotBlank(message = "khong duoc de trong")
     private String password;
     @ManyToOne
     @JoinColumn(name = "customer_id")

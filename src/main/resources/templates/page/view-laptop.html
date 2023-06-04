@@ -23,14 +23,16 @@
                               <div class="d-flex mb-2">
                                     <div class="">
                                           <label for="name" class="form-label">Tên sản phẩm</label>
-                                          <input type="text" class="form-control" id="name" name="name">
+                                          <input type="text" class="form-control" id="name" name="name" th:value="${param.name}">
                                     </div>
                                     <div class="mx-2">
                                           <label for="idBrand" class="form-label">Loại</label>
                                           <select class="form-select" aria-label="Default select example" id="idBrand"
-                                                name="idBrand">
+                                                name="idBrand" >
+                                                <option th:value="''" th:checked="${param.idBrand == null || param.idBrand == ''}">Tất cả</option>
                                                 <div th:each="brandRes : ${listBrand}">
-                                                      <option th:value="${brandRes.id}" th:text="${brandRes.brandName}">
+                                                      <option th:value="${brandRes.id}" th:text="${brandRes.brandName}" th:checked="${param.idBrand == brandRes.id}">
+
                                                       </option>
                                                 </div>
                                           </select>
@@ -45,39 +47,15 @@
                                                       class="form-control" id="priceMax" name="priceMax">
                                           </div>
                                     </div>
-                                    <div class="mx-3">
-                                          <label for="name" class="form-label">Sắp xếp theo</label>
-                                          <div class="d-flex mt-1">
-                                                <div class="form-check ">
-                                                      <input class="form-check-input" type="radio"
-                                                            name="flexRadioDefault" id="flexRadioDefault1">
-                                                      <label class="form-check-label" for="flexRadioDefault1">
-                                                          Từ A-Z
-                                                      </label>
-                                                </div>
-                                                <div class="form-check mx-1">
-                                                      <input class="form-check-input" type="radio"
-                                                            name="flexRadioDefault" id="flexRadioDefault2" >
-                                                      <label class="form-check-label" for="flexRadioDefault2">
-                                                            Từ Z-A
-                                                      </label>
-                                                </div>
-                                                <div class="form-check">
-                                                      <input class="form-check-input" type="radio"
-                                                            name="flexRadioDefault" id="flexRadioDefault3" >
-                                                      <label class="form-check-label" for="flexRadioDefault3">
-                                                            Giá tăng dần
-                                                      </label>
-                                                </div>
-                                                <div class="form-check mx-1">
-                                                      <input class="form-check-input" type="radio"
-                                                            name="flexRadioDefault" id="flexRadioDefault4" >
-                                                      <label class="form-check-label" for="flexRadioDefault4">
-                                                           Giá giảm dần
-                                                      </label>
-                                                </div>
-                                          </div>
-
+                                    <div class="mx-2">
+                                          <label for="columSort" class="form-label">Sắp xếp theo:</label>
+                                          <select class="form-select" aria-label="Default select example" id="columSort"
+                                                  name="columSort">
+                                                      <option th:value="'A-Z'">Tên:Từ A-Z</option>
+                                                      <option th:value="'Z-A'">Tên:Từ Z-A</option>
+                                                      <option th:value="'+'">Giá tăng dần</option>
+                                                      <option th:value="'-'">Giá giảm dần</option>
+                                          </select>
                                     </div>
                               </div>
                               <button type="submit" class="btn btn-primary">Tìm kiếm</button>

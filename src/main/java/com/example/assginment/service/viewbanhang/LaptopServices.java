@@ -7,7 +7,7 @@ import org.springframework.data.domain.Page;
 
 import java.util.List;
 
-public interface LaptopService {
+public interface LaptopServices {
     Page<Laptop> search(LaptopReq req,int page);
 
     Laptop detailLaptop(String id);

@@ -9,6 +9,6 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 @Repository
 public interface BrandRepository extends JpaRepository<Brand,String> {
-    @Query(value = "select o.id,o.brandName from brand  o where o.status <> 2")
+    @Query(value = "select o from brand  o where o.status <> 2")
     List<BrandRes> getBrands();
 }
